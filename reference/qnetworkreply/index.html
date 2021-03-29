@@ -144,7 +144,7 @@
 co-awaiting coroutine is suspended, until <a href="https://doc.qt.io/qt-5/qnetworkreply.html#finished"><code>QNetworkReply::finished()</code></a>
 signal is emitted.</p>
 <p>To make it work, include <code>qcoro/network.h</code> in your implementation.</p>
-<pre><code class="cpp">#include &lt;qcoro/network.h&gt;
+<pre><code class="language-cpp">#include &lt;qcoro/network.h&gt;
 
 QCoro::Task&lt;&gt; MyClass::fetchData() {
     // Creates QNetworkAccessManager on stack

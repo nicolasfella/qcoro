@@ -143,7 +143,7 @@
 <p>One of the best examples where coroutines simplify your code is when dealing with asynchronous
 operations, like network operations.</p>
 <p>Let's see how a simple HTTP request would be handled in Qt using the signals/slots mechanism:</p>
-<pre><code class="cpp">void MyClass::fetchData() {
+<pre><code class="language-cpp">void MyClass::fetchData() {
     auto *nam = new QNetworkAccessManager(this);
     auto *reply = nam-&gt;get(QUrl{QStringLiteral(&quot;https://.../api/fetch&quot;)});
     QObject::connect(reply, &amp;QNetworkReply::finished,
@@ -155,9 +155,8 @@ operations, like network operations.</p>
                      });
 }
 </code></pre>
-
 <p>Now let's see how the code looks like if we use coroutines:</p>
-<pre><code class="cpp">QCoro::Task&lt;&gt; MyClass::fetchData() {
+<pre><code class="language-cpp">QCoro::Task&lt;&gt; MyClass::fetchData() {
     QNetworkReply nam;
     auto *reply = co_await nam.get(QUrl{QStringLiteral(&quot;https://.../api/fetch&quot;)});
     const auto data = reply-&gt;readAll();
@@ -165,7 +164,6 @@ operations, like network operations.</p>
     doSomethingWithData(data);
 }
 </code></pre>
-
 <p>The magic here is the <code>co_await</code> keyword which has turned our method <code>fetchData()</code>
 into a coroutine and suspended its execution while the network request was running.
 When the request finishes, the coroutine is resumed from where it was suspended and

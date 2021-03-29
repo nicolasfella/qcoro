@@ -147,7 +147,7 @@ co-awaiting coroutine is suspended until the <code>QIODevice</code> emits the
 read the coroutine is not suspended. To result of the <code>co_await</code> operation is the
 same as calling <a href="https://doc.qt.io/qt-5/qiodevice.html#readAll"><code>QIODevice::readAll()</code></a>. </p>
 <p>To make it work, include <code>qcoro/qiodevice.h</code> in your implementation.</p>
-<pre><code class="cpp">#include &lt;qcoro/qiodevice.h&gt;
+<pre><code class="language-cpp">#include &lt;qcoro/qiodevice.h&gt;
 
 QCoro::Task&lt;int&gt; MyClass::measureLatency(QTcpSocket *socket) {
     socket-&gt;write(&quot;PING&quot;);

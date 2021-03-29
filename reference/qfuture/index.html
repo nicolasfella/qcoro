@@ -145,7 +145,7 @@ which represent an asynchronously executed call. The co-awaiting coroutine is su
 the <code>QFuture</code> is finished. If the <code>QFuture</code> object is already finished, the coroutine
 will not be suspended.</p>
 <p>To be able to use <code>co_await</code> wit <code>QFuture</code>, include <code>coro/future.h</code> in your implementation.</p>
-<pre><code class="cpp">#include &lt;qcoro/future.h&gt;
+<pre><code class="language-cpp">#include &lt;qcoro/future.h&gt;
 
 QCoro::Task&lt;&gt; runTask() {
     // Starts a concurrent task and co_awaits on the returned QFuture. While the task is

@@ -144,7 +144,7 @@
 which represent an asynchronous D-Bus call. The co-awaiting coroutine is suspended until the
 D-Bus call finishes. If the call has already finished, to coroutine will not be suspended.</p>
 <p>To make it work, include <code>qcoro/dbus.h</code> in your implementation.</p>
-<pre><code class="cpp">#include &lt;qcoro/dbus.h&gt;
+<pre><code class="language-cpp">#include &lt;qcoro/dbus.h&gt;
 
 QCoro::Task&lt;QString&gt; PlayerControl::nextSong() {
     // Create a regular QDBusInterface representing the Spotify MPRIS interface

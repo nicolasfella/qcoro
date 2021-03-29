@@ -166,14 +166,13 @@
 <p>QCoro is a C++ library that provide set of tools to make use of C++20 coroutines
 in connection with certain asynchronous Qt actions.</p>
 <p>Take a look at the example below to see what an amazing thing coroutines are:</p>
-<pre><code class="cpp">QNetworkAccessManager networkAccessManager;
+<pre><code class="language-cpp">QNetworkAccessManager networkAccessManager;
 // co_await the reply - the coroutine is suspended until the QNetworkReply is finished.
 // While the coroutine is suspended, *the Qt event loop runs as usual*.
 const QNetworkReply *reply = co_await networkAccessManager.get(url);
 // Once the reply is finished, your code resumes here as if nothing amazing has just happened ;-)
 const auto data = reply-&gt;readAll();
 </code></pre>
-
 <p>This is a rather experimental library that I started working on to better understand coroutines
 in C++.</p>
 <p>With a single exception of <a href="reference/task/">QCoro::Task</a>, this library does not have any
@@ -208,7 +207,6 @@ should work.</p>
 <pre><code>set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_FLAGS &quot;${CMAKE_CXX_FLAGS} -fcoroutines&quot;)
 </code></pre>
-
 <h3 id="clang">Clang</h3>
 <p>In Clang coroutines are still considered experimental (unlike in GCC), so
 you cannot mix Clang and libstdc++. You must use Clang with libc++. Coroutines
@@ -217,7 +215,6 @@ are enabled by adding <code>-fcoroutines-ts</code> to <code>CMAKE_CXX_FLAGS</cod
 <pre><code>set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_FLAGS &quot;${CMAKE_CXX_FLAGS} -fcoroutines-ts -stdlib=libc++&quot;)
 </code></pre>
-
 <h3 id="msvc">MSVC</h3>
 <p>Currently not supported by QCoro, although MSVC does have full implementation of the
 Coroutines TS. It should be fairly easy to make QCoro work with MSVC, though. If you
@@ -225,7 +222,7 @@ are willing to help, please od get in touch.</p>
 <h2 id="using-qcoro">Using QCoro</h2>
 <p>Using QCoro is easy and only requires a few steps:</p>
 <p>1) Get QCoro, build and install it</p>
-<pre><code class="shell">git clone https://github.com/danvratil/qcoro.git
+<pre><code class="language-shell">git clone https://github.com/danvratil/qcoro.git
 cd qcoro
 mkdir build
 cd build
@@ -235,16 +232,14 @@ make
 # to the cmake command above.
 sudo make install
 </code></pre>
-
 <p>Alternatively, if you don't want to install QCoro into your system, you can just clone the repository (or add 
 it as a git submodule) to your project. Since QCoro is a header-only library, you just need to update your
 project's include paths to pick up the <code>qcoro</code> header directory.</p>
 <p>2) Add it to your CMake:</p>
-<pre><code class="cmake">find_package(QCoro REQUIRED)
+<pre><code class="language-cmake">find_package(QCoro REQUIRED)
 </code></pre>
-
 <p>3) Use it in your code</p>
-<pre><code class="cpp">// If you want to use co_await with QDBusPendingCall...
+<pre><code class="language-cpp">// If you want to use co_await with QDBusPendingCall...
 #include &lt;qcoro/dbus.h&gt;
 // If you want to use co_await with QNetworkReply...
 #include &lt;qcoro/network.h&gt;
@@ -252,7 +247,6 @@ project's include paths to pick up the <code>qcoro</code> header directory.</p>
 #include &lt;qcoro/future.h&gt;
 // ... you get the idea.
 </code></pre>
-
 <p>And that's it!</p></div>
             </div>
         </div>
@@ -314,5 +308,5 @@ project's include paths to pick up the <code>qcoro</code> header directory.</p>
 
 <!--
 MkDocs version : 1.1.2
-Build Date UTC : 2021-03-29 21:50:57.585213+00:00
+Build Date UTC : 2021-03-29 21:55:43.065584+00:00
 -->
