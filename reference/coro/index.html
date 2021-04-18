@@ -14,7 +14,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.1">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.2">
     
     
       
@@ -22,7 +22,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.9299cb39.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6f955dcd.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ef6f36e2.min.css">
@@ -63,7 +63,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#qcorocoro" class="md-skip">
+        <a href="#qcoro" class="md-skip">
           Skip to content
         </a>
       
@@ -335,12 +335,36 @@
       
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
+      
         
       
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          QCoro::coro()
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         QCoro::coro()
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -532,8 +556,17 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+  
     
   
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -546,9 +579,9 @@
               
                 
                 
-                <h1 id="qcorocoro">QCoro::coro()</h1>
-<div class="highlight"><pre><span></span><code><span class="n">QCoroType</span> <span class="n">QCoro</span><span class="o">::</span><span class="n">coro</span><span class="p">(</span><span class="n">QtClass</span> <span class="o">*</span><span class="p">);</span>
-<span class="n">QCoroType</span> <span class="n">QCoro</span><span class="o">::</span><span class="n">coro</span><span class="p">(</span><span class="n">QtClass</span> <span class="o">&amp;</span><span class="p">);</span>
+                <h1 id="qcoro">qCoro()</h1>
+<div class="highlight"><pre><span></span><code><span class="n">QCoroType</span> <span class="nf">qCoro</span><span class="p">(</span><span class="n">QtClass</span> <span class="o">*</span><span class="p">);</span>
+<span class="n">QCoroType</span> <span class="nf">qCoro</span><span class="p">(</span><span class="n">QtClass</span> <span class="o">&amp;</span><span class="p">);</span>
 </code></pre></div>
 <p>This function is overloaded for all Qt types supported by this library. It accepts either
 a pointer or a reference to a Qt type, and returns a QCoro type that wraps the Qt type and
@@ -562,23 +595,23 @@ the timer timeout. Thus with QCoro, it's possible to simply do this:</p>
 </code></pre></div>
 <p>However, some Qt classes have multiple asynchronous operations that the user may want to <code>co_await</code>.
 For such types, simply <code>co_await</code>ing the class instance doesn't make sense since it's not clear
-what operation is being <code>co_await</code>ed. For those types, QCoro provides <code>QCoro::coro()</code> function
+what operation is being <code>co_await</code>ed. For those types, QCoro provides <code>qCoro()</code> function
 which returns a wrapper that provides coroutine-friendly versions of the asynchronous methods
 for the given type.</p>
 <p>Let's take QProcess as an example: one may want to <code>co_await</code> for the program to start or finish.
-Therefor, the type must be wrapped into <code>QCoro::coro()</code> like this:</p>
+Therefor, the type must be wrapped into <code>qCoro()</code> like this:</p>
 <div class="highlight"><pre><span></span><code><span class="n">QProcess</span> <span class="n">process</span><span class="p">;</span>
 <span class="c1">// Wait for the process to be started</span>
-<span class="k">co_await</span> <span class="n">QCoro</span><span class="o">::</span><span class="n">coro</span><span class="p">(</span><span class="n">process</span><span class="p">).</span><span class="n">start</span><span class="p">(...);</span>
+<span class="k">co_await</span> <span class="nf">qCoro</span><span class="p">(</span><span class="n">process</span><span class="p">).</span><span class="n">start</span><span class="p">(...);</span>
 <span class="c1">// The process is running now</span>
 <span class="p">...</span>
 <span class="p">...</span>
 <span class="c1">// Wait for it to finish</span>
-<span class="k">co_await</span> <span class="n">QCoro</span><span class="o">::</span><span class="n">coro</span><span class="p">(</span><span class="n">process</span><span class="p">).</span><span class="n">finished</span><span class="p">();</span>
+<span class="k">co_await</span> <span class="n">qCoro</span><span class="p">(</span><span class="n">process</span><span class="p">).</span><span class="n">finished</span><span class="p">();</span>
 <span class="c1">// The process is no longer running</span>
 <span class="p">...</span>
 </code></pre></div>
-<p><code>QCoro::coro()</code> is simply overloaded for all the Qt types currently supported by the QCoro library.
+<p><code>qCoro()</code> is simply overloaded for all the Qt types currently supported by the QCoro library.
 The function returns a wrapper object (e.g. <code>QCoro::detail::QProcessWrapper</code>) which copies the
 QProcess API. It doesn't copy the entire API, only the bits that we want to make <code>co_await</code>able.
 When you call one of those metods (e.g. <code>QProcessWrapper::start()</code>), it returns an awaitable
@@ -677,7 +710,7 @@ it's mentioned in the previous paragraph simply to explain how the wrapper works
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fe42c31b.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.7353b375.min.js"></script>
+      <script src="../../assets/javascripts/bundle.4ea5477f.min.js"></script>
       
     
   </body>

@@ -14,7 +14,7 @@
       
       
       <link rel="icon" href="assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.1">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.2">
     
     
       
@@ -22,7 +22,7 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.9299cb39.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.6f955dcd.min.css">
       
         
         <link rel="stylesheet" href="assets/stylesheets/palette.ef6f36e2.min.css">
@@ -204,6 +204,7 @@
       
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
+      
         
       
       
@@ -218,6 +219,7 @@
       
         
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
     
@@ -607,6 +609,7 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+  
     
   
   
@@ -700,7 +703,7 @@ in connection with certain asynchronous Qt actions.</p>
 </code></pre></div></p>
 <p>This library has only one class and one function that the user must be aware of: the class is
 <a href="reference/task/"><code>QCoro::Task</code></a> and must be used as a return type for any coroutine that <code>co_await</code>s
-a Qt type. The function is <a href="reference/coro/"><code>QCoro::coro()</code></a> and it provides coroutine-friendly
+a Qt type. The function is <a href="reference/coro/"><code>qCoro()</code></a> and it provides coroutine-friendly
 wrappers for Qt types that have multiple asynchronous operations that the user may want to <code>co_await</code>
 (for example <a href="reference/qprocess/"><code>QProcess</code></a>). All the other code (basically everything in the
 <code>QCoro::detail</code> namespace) is here to provide the cogs and gears for the C++ coroutine machinery,
@@ -847,7 +850,7 @@ project's include paths to pick up the <code>qcoro</code> header directory.</p>
     <script id="__config" type="application/json">{"base": ".", "features": ["navigation.expand"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "assets/javascripts/workers/search.fe42c31b.min.js", "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.7353b375.min.js"></script>
+      <script src="assets/javascripts/bundle.4ea5477f.min.js"></script>
       
     
   </body>

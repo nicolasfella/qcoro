@@ -14,7 +14,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.1">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.2">
     
     
       
@@ -22,7 +22,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.9299cb39.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6f955dcd.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ef6f36e2.min.css">
@@ -406,6 +406,7 @@
       
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
+      
         
       
       
@@ -420,6 +421,7 @@
       
         
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
     
@@ -584,6 +586,7 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+  
     
   
   
@@ -640,13 +643,13 @@
 <p><a href="https://doc.qt.io/qt-5/qiodevice.html"><code>QIODevice</code></a> has several different IO operations that can be waited on
 asynchronously. Since <code>QIODevice</code> itself doesn't provide the abaility to <code>co_await</code> those
 operations, QCoro provides a wrapper class called <code>QCoroIODevice</code>. To wrap a <code>QIODevice</code>
-into a <code>QCoroIODevice</code>, use <a href="../coro/"><code>QCoro::coro()</code></a>:</p>
-<div class="highlight"><pre><span></span><code><span class="n">QCoroIODevice</span> <span class="n">QCoro</span><span class="o">::</span><span class="n">coro</span><span class="p">(</span><span class="n">QIODevice</span> <span class="o">&amp;</span><span class="p">);</span>
-<span class="n">QCoroIODevice</span> <span class="n">QCoro</span><span class="o">::</span><span class="n">coro</span><span class="p">(</span><span class="n">QIODevice</span> <span class="o">*</span><span class="p">);</span>
+into a <code>QCoroIODevice</code>, use <a href="../coro/"><code>qCoro()</code></a>:</p>
+<div class="highlight"><pre><span></span><code><span class="n">QCoroIODevice</span> <span class="nf">qCoro</span><span class="p">(</span><span class="n">QIODevice</span> <span class="o">&amp;</span><span class="p">);</span>
+<span class="n">QCoroIODevice</span> <span class="nf">qCoro</span><span class="p">(</span><span class="n">QIODevice</span> <span class="o">*</span><span class="p">);</span>
 </code></pre></div>
 <p>Note that Qt provides several subclasses of <code>QIODevice</code>. QCoro provides coroutine-friendly
 wrappers for some of those types as well (e.g. for <a href="../qlocalsocket/"><code>QLocalSocket</code></a>). This
-subclass can be passed to <code>QCoro::coro()</code> function as well. Oftentimes the wrapper class
+subclass can be passed to <code>qCoro()</code> function as well. Oftentimes the wrapper class
 will provide some additional features (like co_awaiting establishing connection etc.).
 You can check whether QCoro supports the QIODevice subclass by checking the list of supported
 Qt types.</p>
@@ -673,7 +676,7 @@ until it reads <code>maxSize</code> bytes. Returns the resulting data as <code>Q
 <div class="highlight"><pre><span></span><code><span class="n">Awaitable</span> <span class="k">auto</span> <span class="n">QCoroIODevice</span><span class="o">::</span><span class="n">readLine</span><span class="p">(</span><span class="n">qint64</span> <span class="n">maxSize</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="examples">Examples</h2>
-<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">QByteArray</span> <span class="n">data</span> <span class="o">=</span> <span class="k">co_await</span> <span class="n">QCoro</span><span class="o">::</span><span class="n">coro</span><span class="p">(</span><span class="n">device</span><span class="p">).</span><span class="n">readAll</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">QByteArray</span> <span class="n">data</span> <span class="o">=</span> <span class="k">co_await</span> <span class="n">qCoro</span><span class="p">(</span><span class="n">device</span><span class="p">).</span><span class="n">readAll</span><span class="p">();</span>
 </code></pre></div>
                 
               
@@ -766,7 +769,7 @@ until it reads <code>maxSize</code> bytes. Returns the resulting data as <code>Q
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fe42c31b.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.7353b375.min.js"></script>
+      <script src="../../assets/javascripts/bundle.4ea5477f.min.js"></script>
       
     
   </body>
