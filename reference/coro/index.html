@@ -362,6 +362,20 @@
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
+        <li class="md-nav__item">
+  <a href="#wrapping-qt-signals" class="md-nav__link">
+    Wrapping Qt Signals
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wrapping-qt-types" class="md-nav__link">
+    Wrapping Qt Types
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -566,6 +580,20 @@
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
+        <li class="md-nav__item">
+  <a href="#wrapping-qt-signals" class="md-nav__link">
+    Wrapping Qt Signals
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wrapping-qt-types" class="md-nav__link">
+    Wrapping Qt Types
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -580,6 +608,25 @@
                 
                 
                 <h1 id="qcoro">qCoro()</h1>
+<h2 id="wrapping-qt-signals">Wrapping Qt Signals</h2>
+<div class="highlight"><pre><span></span><code><span class="n">Awaitable</span> <span class="nf">qCoro</span><span class="p">(</span><span class="n">QObject</span> <span class="o">*</span><span class="p">,</span> <span class="n">QtSignalPtr</span><span class="p">);</span>
+</code></pre></div>
+<p>It is possible to <code>co_await</code> an emission of a Qt signal. Signal arguments are returned
+as a result of the <code>co_await</code> expression:</p>
+<div class="highlight"><pre><span></span><code><span class="n">MyDialog</span> <span class="n">dialog</span><span class="p">;</span>
+<span class="p">...</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="k">co_await</span> <span class="n">qCoro</span><span class="p">(</span><span class="o">&amp;</span><span class="n">dialog</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">QDialog</span><span class="o">::</span><span class="n">finished</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">result</span> <span class="o">==</span> <span class="n">QDialog</span><span class="o">::</span><span class="n">Accepted</span><span class="p">)</span> <span class="p">{</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>If the signal has more than one argument, they are returned as a tuple:</p>
+<div class="highlight"><pre><span></span><code><span class="n">QProcess</span> <span class="n">process</span><span class="p">;</span>
+<span class="p">...</span>
+<span class="k">const</span> <span class="k">auto</span> <span class="p">[</span><span class="n">exitCode</span><span class="p">,</span> <span class="n">exitStatus</span><span class="p">]</span> <span class="o">=</span> <span class="k">co_await</span> <span class="n">qCoro</span><span class="p">(</span><span class="o">&amp;</span><span class="n">process</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">QProcess</span><span class="o">::</span><span class="n">finished</span><span class="p">);</span>
+</code></pre></div>
+<p>If the signal has no arguments, then the result of the <code>co_await</code> expression is <code>void</code>.</p>
+<h2 id="wrapping-qt-types">Wrapping Qt Types</h2>
 <div class="highlight"><pre><span></span><code><span class="n">QCoroType</span> <span class="nf">qCoro</span><span class="p">(</span><span class="n">QtClass</span> <span class="o">*</span><span class="p">);</span>
 <span class="n">QCoroType</span> <span class="nf">qCoro</span><span class="p">(</span><span class="n">QtClass</span> <span class="o">&amp;</span><span class="p">);</span>
 </code></pre></div>
