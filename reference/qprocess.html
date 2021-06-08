@@ -13,19 +13,19 @@
         <meta name="author" content="Daniel Vrátil">
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.2, mkdocs-material-7.1.7">
     
     
       
-        <title>QCoro</title>
+        <title>QProcess - QCoro</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.ca7ac06f.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.ca7ac06f.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.f1a3b89f.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.f1a3b89f.min.css">
         
       
     
@@ -64,7 +64,7 @@
     <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
   
     
-    <script>function __prefix(e){return new URL(".",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#qcoro" class="md-skip">
+        <a href="#qprocess" class="md-skip">
           Skip to content
         </a>
       
@@ -83,7 +83,7 @@
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="index.html" title="QCoro" class="md-header__button md-logo" aria-label="QCoro" data-md-component="logo">
+    <a href="../index.html" title="QCoro" class="md-header__button md-logo" aria-label="QCoro" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              QProcess
             
           </span>
         </div>
@@ -176,7 +176,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="index.html" title="QCoro" class="md-nav__button md-logo" aria-label="QCoro" data-md-component="logo">
+    <a href="../index.html" title="QCoro" class="md-nav__button md-logo" aria-label="QCoro" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -206,99 +206,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Home
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="index.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
         Home
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    Overview
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#coroutines" class="md-nav__link">
-    Coroutines
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#supported-compilers" class="md-nav__link">
-    Supported Compilers
-  </a>
-  
-    <nav class="md-nav" aria-label="Supported Compilers">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#gcc" class="md-nav__link">
-    GCC
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#clang" class="md-nav__link">
-    Clang
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#msvc" class="md-nav__link">
-    MSVC
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#using-qcoro" class="md-nav__link">
-    Using QCoro
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -311,7 +223,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install.html" class="md-nav__link">
+      <a href="../install.html" class="md-nav__link">
         Installation
       </a>
     </li>
@@ -347,7 +259,7 @@
   
   
     <li class="md-nav__item">
-      <a href="coroutines/qt-vs-coawait.html" class="md-nav__link">
+      <a href="../coroutines/qt-vs-coawait.html" class="md-nav__link">
         Qt vs. co_await
       </a>
     </li>
@@ -359,7 +271,7 @@
   
   
     <li class="md-nav__item">
-      <a href="coroutines/coawait.html" class="md-nav__link">
+      <a href="../coroutines/coawait.html" class="md-nav__link">
         co_await Explained
       </a>
     </li>
@@ -371,7 +283,7 @@
   
   
     <li class="md-nav__item">
-      <a href="coroutines/reading.html" class="md-nav__link">
+      <a href="../coroutines/reading.html" class="md-nav__link">
         Further Reading
       </a>
     </li>
@@ -390,12 +302,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" data-md-state="indeterminate" type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
       
       <label class="md-nav__link" for="__nav_4">
         Reference
@@ -413,7 +327,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/task.html" class="md-nav__link">
+      <a href="task.html" class="md-nav__link">
         QCoro::Task<T>
       </a>
     </li>
@@ -425,7 +339,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/coro.html" class="md-nav__link">
+      <a href="coro.html" class="md-nav__link">
         QCoro::coro()
       </a>
     </li>
@@ -435,12 +349,14 @@
             
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" data-md-state="indeterminate" type="checkbox" id="__nav_4_3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" checked>
       
       <label class="md-nav__link" for="__nav_4_3">
         Supported Types
@@ -458,7 +374,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/qabstractsocket.html" class="md-nav__link">
+      <a href="qabstractsocket.html" class="md-nav__link">
         QAbstractSocket
       </a>
     </li>
@@ -470,7 +386,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/qdbuspendingcall.html" class="md-nav__link">
+      <a href="qdbuspendingcall.html" class="md-nav__link">
         QDBusPendingCall
       </a>
     </li>
@@ -482,7 +398,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/qfuture.html" class="md-nav__link">
+      <a href="qfuture.html" class="md-nav__link">
         QFuture
       </a>
     </li>
@@ -494,7 +410,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/qiodevice.html" class="md-nav__link">
+      <a href="qiodevice.html" class="md-nav__link">
         QIODevice
       </a>
     </li>
@@ -506,7 +422,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/qlocalsocket.html" class="md-nav__link">
+      <a href="qlocalsocket.html" class="md-nav__link">
         QLocalSocket
       </a>
     </li>
@@ -518,7 +434,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/qnetworkreply.html" class="md-nav__link">
+      <a href="qnetworkreply.html" class="md-nav__link">
         QNetworkReply
       </a>
     </li>
@@ -528,11 +444,72 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="reference/qprocess.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          QProcess
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="qprocess.html" class="md-nav__link md-nav__link--active">
         QProcess
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#waitforstarted" class="md-nav__link">
+    waitForStarted()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#waitforfinished" class="md-nav__link">
+    waitForFinished()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#start" class="md-nav__link">
+    start()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -542,7 +519,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/qtimer.html" class="md-nav__link">
+      <a href="qtimer.html" class="md-nav__link">
         QTimer
       </a>
     </li>
@@ -554,7 +531,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/qtcpserver.html" class="md-nav__link">
+      <a href="qtcpserver.html" class="md-nav__link">
         QTcpServer
       </a>
     </li>
@@ -602,7 +579,7 @@
   
   
     <li class="md-nav__item">
-      <a href="about/license.html" class="md-nav__link">
+      <a href="../about/license.html" class="md-nav__link">
         License
       </a>
     </li>
@@ -641,56 +618,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    Overview
+  <a href="#waitforstarted" class="md-nav__link">
+    waitForStarted()
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#coroutines" class="md-nav__link">
-    Coroutines
+  <a href="#waitforfinished" class="md-nav__link">
+    waitForFinished()
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#supported-compilers" class="md-nav__link">
-    Supported Compilers
+  <a href="#start" class="md-nav__link">
+    start()
   </a>
-  
-    <nav class="md-nav" aria-label="Supported Compilers">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#gcc" class="md-nav__link">
-    GCC
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#clang" class="md-nav__link">
-    Clang
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#msvc" class="md-nav__link">
-    MSVC
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#using-qcoro" class="md-nav__link">
-    Using QCoro
+  <a href="#examples" class="md-nav__link">
+    Examples
   </a>
   
 </li>
@@ -708,89 +658,56 @@
               
                 
                 
-                <h1 id="qcoro">QCoro</h1>
-<p>C++ Coroutine library for Qt</p>
-<hr />
-<h2 id="overview">Overview</h2>
-<p>QCoro is a C++ library that provide set of tools to make use of C++20 coroutines
-in connection with certain asynchronous Qt actions.</p>
-<p>Take a look at the example below to see what an amazing thing coroutines are:
-<div class="highlight"><pre><span></span><code><span class="n">QNetworkAccessManager</span> <span class="n">networkAccessManager</span><span class="p">;</span>
-<span class="c1">// co_await the reply - the coroutine is suspended until the QNetworkReply is finished.</span>
-<span class="c1">// While the coroutine is suspended, *the Qt event loop runs as usual*.</span>
-<span class="k">const</span> <span class="n">QNetworkReply</span> <span class="o">*</span><span class="n">reply</span> <span class="o">=</span> <span class="k">co_await</span> <span class="n">networkAccessManager</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">);</span>
-<span class="c1">// Once the reply is finished, your code resumes here as if nothing amazing has just happened ;-)</span>
-<span class="k">const</span> <span class="k">auto</span> <span class="n">data</span> <span class="o">=</span> <span class="n">reply</span><span class="o">-&gt;</span><span class="n">readAll</span><span class="p">();</span>
-</code></pre></div></p>
-<p>This library has only one class and one function that the user must be aware of: the class is
-<a href="reference/task.html"><code>QCoro::Task</code></a> and must be used as a return type for any coroutine that <code>co_await</code>s
-a Qt type. The function is <a href="reference/coro.html"><code>qCoro()</code></a> and it provides coroutine-friendly
-wrappers for Qt types that have multiple asynchronous operations that the user may want to <code>co_await</code>
-(for example <a href="reference/qprocess.html"><code>QProcess</code></a>). All the other code (basically everything in the
-<code>QCoro::detail</code> namespace) is here to provide the cogs and gears for the C++ coroutine machinery,
-making it possible to use Qt types with coroutines.</p>
-<p>The major benefit of using coroutines with Qt types is that it allows writing asynchronous code as if it
-were synchronous and, most importantly, while the coroutine is <code>co_await</code>ing, the <strong>Qt event loop runs
-as usual</strong>, meaning that your application remains responsive.</p>
-<p>This is a rather experimental library that I started working on to better understand coroutines
-in C++. After reading numerous articles and blog posts about coroutines, it still wasn't exactly
-clear to me how the whole thing works, so I started working on this library to get a better idea
-about coroutines.</p>
-<h2 id="coroutines">Coroutines</h2>
-<p>Coroutines are regular functions, except that they can be suspended and resumed again. When
-a coroutine is suspended, it returns sort of a promise to the caller and the caller continues
-executing their code. At some point, the caller can use the newly introduced <code>co_await</code> keyword
-to wait for the returned promise to be fulfilled. When that happens, the caller is suspended
-and instead the coroutine is resumed.</p>
-<p>This allows writing asynchronous code as if it were synchronous, making it much easier to read
-and understand.</p>
-<p>That's not all that coroutines can do, you can read more about it in the 'Coroutines' section
-of this documentation.</p>
-<h2 id="supported-compilers">Supported Compilers</h2>
-<p>This library requires a compiler that supports the Coroutine TS (obviously). Currently
-GCC and Clang are supported, MSVC should be possible too, but I haven't tried.</p>
-<p>All examples were tested with GCC 10 and Clang 11, although even slightly older versions
-should work.</p>
-<p>In both GCC and Clang, coroutine support must be explicitly enabled:</p>
-<h3 id="gcc">GCC</h3>
-<p>To enable coroutines support in GCC, add <code>-fcoroutines</code> to <code>CXX_FLAGS</code>.</p>
-<p>CMake:
-<div class="highlight"><pre><span></span><code>set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_FLAGS &quot;${CMAKE_CXX_FLAGS} -fcoroutines&quot;)
-</code></pre></div></p>
-<h3 id="clang">Clang</h3>
-<p>In Clang coroutines are still considered experimental (unlike in GCC), so
-you cannot mix Clang and libstdc++. You must use Clang with libc++. Coroutines
-are enabled by adding <code>-fcoroutines-ts</code> to <code>CMAKE_CXX_FLAGS</code>.</p>
-<p>CMake:
-<div class="highlight"><pre><span></span><code>set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_FLAGS &quot;${CMAKE_CXX_FLAGS} -fcoroutines-ts -stdlib=libc++&quot;)
-</code></pre></div></p>
-<h3 id="msvc">MSVC</h3>
-<p>Currently not supported by QCoro, although MSVC does have full implementation of the
-Coroutines TS. It should be fairly easy to make QCoro work with MSVC, though. If you
-are willing to help, please od get in touch.</p>
-<h2 id="using-qcoro">Using QCoro</h2>
-<p>Using QCoro is easy and only requires a few steps:</p>
-<p>1) Get QCoro, build and install it</p>
-<div class="highlight"><pre><span></span><code>git clone https://github.com/danvratil/qcoro.git
-<span class="nb">cd</span> qcoro
-mkdir build
-<span class="nb">cd</span> build
-cmake ..
-make
-<span class="c1"># This will install QCoro into /usr/local/ prefix, change it by passing -DCMAKE_INSTALL_PREFIX=/usr</span>
-<span class="c1"># to the cmake command above.</span>
-sudo make install
+                <h1 id="qprocess">QProcess</h1>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">QCoroProcess</span> <span class="o">:</span> <span class="k">public</span> <span class="n">QCoroIODevice</span><span class="p">;</span>
 </code></pre></div>
-<p>2) Add it to your CMake:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">find_package</span><span class="p">(</span><span class="s">QCoro</span> <span class="s">REQUIRED</span><span class="p">)</span>
-<span class="err">...</span>
-<span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">your-target</span> <span class="s">QCoro::QCoro</span><span class="p">)</span>
+<p><a href="https://doc.qt.io/qt-5/qprocess.html"><code>QProcess</code></a> normally has two features to wait for asynchronously: the process to start
+and to finish. Since <code>QProcess</code> itself doesn't provide the ability to <code>co_await</code> those operations,
+QCoro provides a wrapper class <code>QCoroProcess</code>. To wrap a <code>QProcess</code> object into the <code>QCoroProcess</code>
+wrapper, use <a href="coro.html"><code>qCoro()</code></a>:</p>
+<div class="highlight"><pre><span></span><code><span class="n">QCoroProcess</span> <span class="nf">qCoro</span><span class="p">(</span><span class="n">QProcess</span> <span class="o">&amp;</span><span class="p">);</span>
+<span class="n">QCoroProcess</span> <span class="nf">qCoro</span><span class="p">(</span><span class="n">QProcess</span> <span class="o">*</span><span class="p">);</span>
 </code></pre></div>
-<p>3) Use it in your code</p>
-<p>See the Reference section for detail.</p>
-<p>And that's it!</p>
+<p>Same as <code>QProcess</code> is a subclass of <code>QIODevice</code>, <code>QCoroProcess</code> subclasses <a href="qiodevice.html"><code>QCoroIODevice</code></a>,
+so it also provides the awaitable interface for selected QIODevice functions.
+See <a href="qiodevice.html"><code>QCoroIODevice</code></a> documentation for details.</p>
+<h2 id="waitforstarted"><code>waitForStarted()</code></h2>
+<p>Waits for the process to be started or until it times out. Returns <code>bool</code> indicating
+whether the process has started successfuly or timed out.</p>
+<p>See documentation for <a href="https://doc.qt.io/qt-5/qprocess.html#waitForStarted"><code>QProcess::waitForStarted()</code></a> for details.</p>
+<div class="highlight"><pre><span></span><code><span class="n">Awaitable</span> <span class="k">auto</span> <span class="n">QCoroProcess</span><span class="o">::</span><span class="n">waitForStarted</span><span class="p">(</span><span class="kt">int</span> <span class="n">timeout</span> <span class="o">=</span> <span class="mi">30&#39;000</span><span class="p">);</span>
+<span class="n">Awaitable</span> <span class="k">auto</span> <span class="n">QCoroProcess</span><span class="o">::</span><span class="n">waitForStarted</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">milliseconds</span> <span class="n">timeout</span><span class="p">);</span>
+</code></pre></div>
+<h2 id="waitforfinished"><code>waitForFinished()</code></h2>
+<p>Waits for the process to finish or until it times out. Returns <code>bool</code> indicating
+whether the process has finished successfuly or timed out.</p>
+<p>See documentation for [<code>QProcess::waitForFinished()</code>][qtdoc-qprocess-waitForFinished] for details.</p>
+<div class="highlight"><pre><span></span><code><span class="n">Awaitable</span> <span class="k">auto</span> <span class="n">QCoroProcess</span><span class="o">::</span><span class="n">waitForFinishedint</span> <span class="n">timeout</span> <span class="o">=</span> <span class="mi">30&#39;000</span><span class="p">);</span>
+<span class="n">Awaitable</span> <span class="k">auto</span> <span class="n">QCoroProcess</span><span class="o">::</span><span class="n">waitForFinished</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">milliseconds</span> <span class="n">timeout</span><span class="p">);</span>
+</code></pre></div>
+<h2 id="start"><code>start()</code></h2>
+<p>QCoroProcess provides an additional method called <code>start()</code> which is equivalent to calling
+<code>QProcess::start()</code> followed by <code>QCoroProcess::waitForStarted()</code>. This operation is <code>co_awaitable</code>
+as well.</p>
+<p>See the documentation for <a href="https://doc.qt.io/qt-5/qprocess.html#start"><code>QProcess::start()</code></a> and
+<a href="https://doc.qt.io/qt-5/qprocess.html#waitForStarted"><code>QProcess::waitForStarted()</code></a> for details.</p>
+<div class="highlight"><pre><span></span><code><span class="n">Awaitable</span> <span class="k">auto</span> <span class="n">QCoroProcess</span><span class="o">::</span><span class="n">start</span><span class="p">(</span><span class="n">QIODevice</span><span class="o">::</span><span class="n">OpenMode</span> <span class="n">openMode</span><span class="p">)</span> <span class="o">=</span> <span class="n">QIODevice</span><span class="o">::</span><span class="n">ReadOnly</span><span class="p">;</span>
+<span class="n">Awaitable</span> <span class="k">auto</span> <span class="n">QCoroProcess</span><span class="o">::</span><span class="n">start</span><span class="p">(</span><span class="k">const</span> <span class="n">QString</span> <span class="o">&amp;</span><span class="n">program</span><span class="p">,</span> <span class="k">const</span> <span class="n">QStringList</span> <span class="o">&amp;</span><span class="n">arguments</span><span class="p">,</span>
+                                   <span class="n">QIODevice</span><span class="o">::</span><span class="n">OpenMode</span> <span class="n">openMode</span> <span class="o">=</span> <span class="n">QIODevice</span><span class="o">::</span><span class="n">ReadOnly</span><span class="p">);</span>
+</code></pre></div>
+<h2 id="examples">Examples</h2>
+<div class="highlight"><pre><span></span><code><span class="n">QCoro</span><span class="o">::</span><span class="n">Task</span><span class="o">&lt;</span><span class="n">QStringList</span><span class="o">&gt;</span> <span class="n">listDir</span><span class="p">(</span><span class="k">const</span> <span class="n">QString</span> <span class="o">&amp;</span><span class="n">dirPath</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">QProcess</span> <span class="n">process</span><span class="p">;</span>
+    <span class="n">qDebug</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Starting ls...&quot;</span><span class="p">;</span>
+    <span class="k">co_await</span> <span class="n">process</span><span class="p">.</span><span class="n">start</span><span class="p">(</span><span class="n">QStringLiteral</span><span class="p">(</span><span class="s">&quot;/bin/ls&quot;</span><span class="p">),</span> <span class="p">{</span><span class="n">dirPath</span><span class="p">});</span>
+    <span class="n">qDebug</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Ls started, reading directory...&quot;</span><span class="p">;</span>
+
+    <span class="k">co_await</span> <span class="n">process</span><span class="p">.</span><span class="n">waitForFinished</span><span class="p">();</span>
+    <span class="n">qDebug</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Done&quot;</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="n">process</span><span class="p">.</span><span class="n">readAll</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
                 
               
               
@@ -809,15 +726,30 @@ sudo make install
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
+        
+        <a href="qnetworkreply.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: QNetworkReply" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              QNetworkReply
+            </div>
+          </div>
+        </a>
+      
       
         
-        <a href="install.html" class="md-footer__link md-footer__link--next" aria-label="Next: Installation" rel="next">
+        <a href="qtimer.html" class="md-footer__link md-footer__link--next" aria-label="Next: QTimer" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Installation
+              QTimer
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -872,10 +804,10 @@ sudo make install
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.expand"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.b0710199.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.expand"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.b0710199.min.js", "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.76f349be.min.js"></script>
+      <script src="../assets/javascripts/bundle.76f349be.min.js"></script>
       
     
   </body>

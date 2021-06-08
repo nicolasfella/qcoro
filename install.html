@@ -18,7 +18,7 @@
     
     
       
-        <title>QCoro</title>
+        <title>Installation - QCoro</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#qcoro" class="md-skip">
+        <a href="#get-started" class="md-skip">
           Skip to content
         </a>
       
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Installation
             
           </span>
         </div>
@@ -206,6 +206,21 @@
 
   
   
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
     
   
   
@@ -218,12 +233,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Home
+          Installation
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="index.html" class="md-nav__link md-nav__link--active">
-        Home
+      <a href="install.html" class="md-nav__link md-nav__link--active">
+        Installation
       </a>
       
         
@@ -241,56 +256,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    Overview
+  <a href="#install-qcoro" class="md-nav__link">
+    Install QCoro
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#coroutines" class="md-nav__link">
-    Coroutines
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#supported-compilers" class="md-nav__link">
-    Supported Compilers
-  </a>
-  
-    <nav class="md-nav" aria-label="Supported Compilers">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#gcc" class="md-nav__link">
-    GCC
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#clang" class="md-nav__link">
-    Clang
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#msvc" class="md-nav__link">
-    MSVC
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#using-qcoro" class="md-nav__link">
-    Using QCoro
+  <a href="#add-it-to-your-cmake" class="md-nav__link">
+    Add it to your CMake
   </a>
   
 </li>
@@ -299,21 +273,6 @@
   
 </nav>
       
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="install.html" class="md-nav__link">
-        Installation
-      </a>
     </li>
   
 
@@ -641,56 +600,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    Overview
+  <a href="#install-qcoro" class="md-nav__link">
+    Install QCoro
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#coroutines" class="md-nav__link">
-    Coroutines
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#supported-compilers" class="md-nav__link">
-    Supported Compilers
-  </a>
-  
-    <nav class="md-nav" aria-label="Supported Compilers">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#gcc" class="md-nav__link">
-    GCC
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#clang" class="md-nav__link">
-    Clang
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#msvc" class="md-nav__link">
-    MSVC
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#using-qcoro" class="md-nav__link">
-    Using QCoro
+  <a href="#add-it-to-your-cmake" class="md-nav__link">
+    Add it to your CMake
   </a>
   
 </li>
@@ -708,71 +626,8 @@
               
                 
                 
-                <h1 id="qcoro">QCoro</h1>
-<p>C++ Coroutine library for Qt</p>
-<hr />
-<h2 id="overview">Overview</h2>
-<p>QCoro is a C++ library that provide set of tools to make use of C++20 coroutines
-in connection with certain asynchronous Qt actions.</p>
-<p>Take a look at the example below to see what an amazing thing coroutines are:
-<div class="highlight"><pre><span></span><code><span class="n">QNetworkAccessManager</span> <span class="n">networkAccessManager</span><span class="p">;</span>
-<span class="c1">// co_await the reply - the coroutine is suspended until the QNetworkReply is finished.</span>
-<span class="c1">// While the coroutine is suspended, *the Qt event loop runs as usual*.</span>
-<span class="k">const</span> <span class="n">QNetworkReply</span> <span class="o">*</span><span class="n">reply</span> <span class="o">=</span> <span class="k">co_await</span> <span class="n">networkAccessManager</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">);</span>
-<span class="c1">// Once the reply is finished, your code resumes here as if nothing amazing has just happened ;-)</span>
-<span class="k">const</span> <span class="k">auto</span> <span class="n">data</span> <span class="o">=</span> <span class="n">reply</span><span class="o">-&gt;</span><span class="n">readAll</span><span class="p">();</span>
-</code></pre></div></p>
-<p>This library has only one class and one function that the user must be aware of: the class is
-<a href="reference/task.html"><code>QCoro::Task</code></a> and must be used as a return type for any coroutine that <code>co_await</code>s
-a Qt type. The function is <a href="reference/coro.html"><code>qCoro()</code></a> and it provides coroutine-friendly
-wrappers for Qt types that have multiple asynchronous operations that the user may want to <code>co_await</code>
-(for example <a href="reference/qprocess.html"><code>QProcess</code></a>). All the other code (basically everything in the
-<code>QCoro::detail</code> namespace) is here to provide the cogs and gears for the C++ coroutine machinery,
-making it possible to use Qt types with coroutines.</p>
-<p>The major benefit of using coroutines with Qt types is that it allows writing asynchronous code as if it
-were synchronous and, most importantly, while the coroutine is <code>co_await</code>ing, the <strong>Qt event loop runs
-as usual</strong>, meaning that your application remains responsive.</p>
-<p>This is a rather experimental library that I started working on to better understand coroutines
-in C++. After reading numerous articles and blog posts about coroutines, it still wasn't exactly
-clear to me how the whole thing works, so I started working on this library to get a better idea
-about coroutines.</p>
-<h2 id="coroutines">Coroutines</h2>
-<p>Coroutines are regular functions, except that they can be suspended and resumed again. When
-a coroutine is suspended, it returns sort of a promise to the caller and the caller continues
-executing their code. At some point, the caller can use the newly introduced <code>co_await</code> keyword
-to wait for the returned promise to be fulfilled. When that happens, the caller is suspended
-and instead the coroutine is resumed.</p>
-<p>This allows writing asynchronous code as if it were synchronous, making it much easier to read
-and understand.</p>
-<p>That's not all that coroutines can do, you can read more about it in the 'Coroutines' section
-of this documentation.</p>
-<h2 id="supported-compilers">Supported Compilers</h2>
-<p>This library requires a compiler that supports the Coroutine TS (obviously). Currently
-GCC and Clang are supported, MSVC should be possible too, but I haven't tried.</p>
-<p>All examples were tested with GCC 10 and Clang 11, although even slightly older versions
-should work.</p>
-<p>In both GCC and Clang, coroutine support must be explicitly enabled:</p>
-<h3 id="gcc">GCC</h3>
-<p>To enable coroutines support in GCC, add <code>-fcoroutines</code> to <code>CXX_FLAGS</code>.</p>
-<p>CMake:
-<div class="highlight"><pre><span></span><code>set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_FLAGS &quot;${CMAKE_CXX_FLAGS} -fcoroutines&quot;)
-</code></pre></div></p>
-<h3 id="clang">Clang</h3>
-<p>In Clang coroutines are still considered experimental (unlike in GCC), so
-you cannot mix Clang and libstdc++. You must use Clang with libc++. Coroutines
-are enabled by adding <code>-fcoroutines-ts</code> to <code>CMAKE_CXX_FLAGS</code>.</p>
-<p>CMake:
-<div class="highlight"><pre><span></span><code>set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_FLAGS &quot;${CMAKE_CXX_FLAGS} -fcoroutines-ts -stdlib=libc++&quot;)
-</code></pre></div></p>
-<h3 id="msvc">MSVC</h3>
-<p>Currently not supported by QCoro, although MSVC does have full implementation of the
-Coroutines TS. It should be fairly easy to make QCoro work with MSVC, though. If you
-are willing to help, please od get in touch.</p>
-<h2 id="using-qcoro">Using QCoro</h2>
-<p>Using QCoro is easy and only requires a few steps:</p>
-<p>1) Get QCoro, build and install it</p>
+                <h1 id="get-started">Get Started</h1>
+<h2 id="install-qcoro">Install QCoro</h2>
 <div class="highlight"><pre><span></span><code>git clone https://github.com/danvratil/qcoro.git
 <span class="nb">cd</span> qcoro
 mkdir build
@@ -783,14 +638,11 @@ make
 <span class="c1"># to the cmake command above.</span>
 sudo make install
 </code></pre></div>
-<p>2) Add it to your CMake:</p>
+<h2 id="add-it-to-your-cmake">Add it to your CMake</h2>
 <div class="highlight"><pre><span></span><code><span class="nb">find_package</span><span class="p">(</span><span class="s">QCoro</span> <span class="s">REQUIRED</span><span class="p">)</span>
 <span class="err">...</span>
 <span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">your-target</span> <span class="s">QCoro::QCoro</span><span class="p">)</span>
 </code></pre></div>
-<p>3) Use it in your code</p>
-<p>See the Reference section for detail.</p>
-<p>And that's it!</p>
                 
               
               
@@ -809,15 +661,30 @@ sudo make install
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
+        
+        <a href="index.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Home" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Home
+            </div>
+          </div>
+        </a>
+      
       
         
-        <a href="install.html" class="md-footer__link md-footer__link--next" aria-label="Next: Installation" rel="next">
+        <a href="coroutines/qt-vs-coawait.html" class="md-footer__link md-footer__link--next" aria-label="Next: Qt vs. co_await" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Installation
+              Qt vs. co_await
             </div>
           </div>
           <div class="md-footer__button md-icon">
