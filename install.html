@@ -14,7 +14,7 @@
       
       
       <link rel="icon" href="assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2, mkdocs-material-7.1.7">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.8">
     
     
       
@@ -640,7 +640,12 @@ sudo make install
 </code></pre></div>
 <h2 id="add-it-to-your-cmake">Add it to your CMake</h2>
 <div class="highlight"><pre><span></span><code><span class="nb">find_package</span><span class="p">(</span><span class="s">QCoro</span> <span class="s">REQUIRED</span><span class="p">)</span>
+
+<span class="c"># Set necessary compiler flags to enable coroutine support</span>
+<span class="nb">qcoro_enable_coroutines</span><span class="p">()</span>
+
 <span class="err">...</span>
+
 <span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">your-target</span> <span class="s">QCoro::QCoro</span><span class="p">)</span>
 </code></pre></div>
                 
