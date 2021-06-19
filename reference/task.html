@@ -336,9 +336,39 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          QCoro::Task<T>
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="task.html" class="md-nav__link md-nav__link--active">
         QCoro::Task<T>
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#blocking-wait" class="md-nav__link">
+    Blocking wait
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -558,6 +588,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#blocking-wait" class="md-nav__link">
+    Blocking wait
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -607,6 +652,29 @@ of the <code>co_await</code> call.</p>
 <p class="admonition-title">Exception Propagation</p>
 <p>When coroutines throws an unhandled exception, the exception is stored in the <code>Task</code> object and
 is re-thrown from the <code>co_await</code> call in the awaiting coroutine.</p>
+</div>
+<h2 id="blocking-wait">Blocking wait</h2>
+<p>Sometimes it's necessary to wait for a coroutine in a blocking manner - this is especially useful
+in tests where possibly no event loop is running. QCoro has <code>QCoro::blockingWait()</code> function
+which takes <code>QCoro::Task&lt;T&gt;</code> (that is, result of calling any QCoro-based coroutine) and blocks
+until the coroutine finishes. If the coroutine has a non-void return value, the value is returned
+from <code>blockingWait().</code></p>
+<div class="highlight"><pre><span></span><code><span class="n">QCoro</span><span class="o">::</span><span class="n">Task</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">computeAnswer</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">this_thread</span><span class="o">::</span><span class="n">sleep_for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">year</span><span class="p">{</span><span class="mi">7&#39;500&#39;000</span><span class="p">});</span>
+    <span class="k">co_return</span> <span class="mi">42</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">nonCoroutineFunction</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// The following line will block as if computeAnswer were not a coroutine.</span>
+    <span class="k">const</span> <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="n">QCoro</span><span class="o">::</span><span class="n">blockingWait</span><span class="p">(</span><span class="n">computeAnswer</span><span class="p">());</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;The answer is: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">answer</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Event loops</p>
+<p>The implementation internally uses a <code>QEventLoop</code> to wait for the coroutine to be completed.
+This means that a <code>QCoreApplication</code> instance must exist, although it does not need to be
+executed. Usual warnings about using a nested event loop apply here as well.</p>
 </div>
                 
               
