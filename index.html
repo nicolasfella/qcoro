@@ -14,7 +14,7 @@
       
       
       <link rel="icon" href="assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.8">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.9">
     
     
       
@@ -288,13 +288,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#using-qcoro" class="md-nav__link">
-    Using QCoro
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -311,8 +304,8 @@
   
   
     <li class="md-nav__item">
-      <a href="install.html" class="md-nav__link">
-        Installation
+      <a href="building-and-using.html" class="md-nav__link">
+        Building and Using QCoro
       </a>
     </li>
   
@@ -688,13 +681,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#using-qcoro" class="md-nav__link">
-    Using QCoro
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -758,6 +744,8 @@ should work.</p>
 <div class="highlight"><pre><span></span><code>set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_FLAGS &quot;${CMAKE_CXX_FLAGS} -fcoroutines&quot;)
 </code></pre></div></p>
+<p>Alternatively, just use <code>qcoro_enable_coroutines()</code> CMake macro provided by QCoro to set the
+flags automatically.</p>
 <h3 id="clang">Clang</h3>
 <p>In Clang coroutines are still considered experimental (unlike in GCC), so
 you cannot mix Clang and libstdc++. You must use Clang with libc++. Coroutines
@@ -766,31 +754,22 @@ are enabled by adding <code>-fcoroutines-ts</code> to <code>CMAKE_CXX_FLAGS</cod
 <div class="highlight"><pre><span></span><code>set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_FLAGS &quot;${CMAKE_CXX_FLAGS} -fcoroutines-ts -stdlib=libc++&quot;)
 </code></pre></div></p>
+<p>Alternatively, just use <code>qcoro_enable_coroutines()</code> CMake macro provided by QCoro to set the
+flags automatically.</p>
+<div class="admonition info">
+<p class="admonition-title">LLVM libc++ vs. GNU libstdc++</p>
+<p>While both libraries implement the same standard they are not mutually compatible - for one thing LLVM's 
+libc++ is a bit behind libstdc++ on implementing all the features, but more importantly they are not
+ABI compatible. That means that if you compile Qt with libstdc++ (which most Linux distributions do)
+and your application with QCoro using libc++, you will likely run into <code>undefined reference</code> errors
+when linking your app against Qt.</p>
+<p>One option is to build Qt youself with libc++, other option is to use GCC or MSVC and avoid Clang until 
+it has full support for coroutines, which will hopefully allow using libstdc++ with Clang.</p>
+</div>
 <h3 id="msvc">MSVC</h3>
 <p>Currently not supported by QCoro, although MSVC does have full implementation of the
 Coroutines TS. It should be fairly easy to make QCoro work with MSVC, though. If you
 are willing to help, please od get in touch.</p>
-<h2 id="using-qcoro">Using QCoro</h2>
-<p>Using QCoro is easy and only requires a few steps:</p>
-<p>1) Get QCoro, build and install it</p>
-<div class="highlight"><pre><span></span><code>git clone https://github.com/danvratil/qcoro.git
-<span class="nb">cd</span> qcoro
-mkdir build
-<span class="nb">cd</span> build
-cmake ..
-make
-<span class="c1"># This will install QCoro into /usr/local/ prefix, change it by passing -DCMAKE_INSTALL_PREFIX=/usr</span>
-<span class="c1"># to the cmake command above.</span>
-sudo make install
-</code></pre></div>
-<p>2) Add it to your CMake:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">find_package</span><span class="p">(</span><span class="s">QCoro</span> <span class="s">REQUIRED</span><span class="p">)</span>
-<span class="err">...</span>
-<span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">your-target</span> <span class="s">QCoro::QCoro</span><span class="p">)</span>
-</code></pre></div>
-<p>3) Use it in your code</p>
-<p>See the Reference section for detail.</p>
-<p>And that's it!</p>
                 
               
               
@@ -811,13 +790,13 @@ sudo make install
       
       
         
-        <a href="install.html" class="md-footer__link md-footer__link--next" aria-label="Next: Installation" rel="next">
+        <a href="building-and-using.html" class="md-footer__link md-footer__link--next" aria-label="Next: Building and Using QCoro" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Installation
+              Building and Using QCoro
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -872,10 +851,10 @@ sudo make install
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.expand"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.b0710199.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.expand"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.76f349be.min.js"></script>
+      <script src="assets/javascripts/bundle.82b56eb2.min.js"></script>
       
     
   </body>
